@@ -4,8 +4,8 @@ namespace WebJar.Domain.Entities
 {
     public class Discount : Field
     {
-        public float Amount { get; set; }
-        public DateTime ExpireDate { get; set; }
+        public float? Amount { get; set; }
+        public DateTime? ExpireDate { get; set; }
 
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
