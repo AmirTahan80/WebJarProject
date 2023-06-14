@@ -9,16 +9,11 @@ namespace WebJar.WebApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            IConfigurationRoot configuration = new ConfigurationBuilder().Build();
             // Add services to the container.
 
             builder.Services.AddControllers();
             #region DbContext
-            builder.Services.AddDbContext<WebJar.Persistence.Data.AppContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("ConnectToDataBase"),
-                    o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
-            });
+            builder.Services.AddDbContext<WebJar.Persistence.Data.AppContext>();
             #endregion
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

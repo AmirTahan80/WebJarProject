@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebJar.Application\WebJar.Application.csproj" />
     <ProjectReference Include="..\WebJar.Persistence\WebJar.Persistence.csproj" />
   </ItemGroup>
 
