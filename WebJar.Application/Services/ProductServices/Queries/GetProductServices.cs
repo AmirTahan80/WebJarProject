@@ -28,7 +28,7 @@ namespace WebJar.Application.Services.ProductServices.Queries
 
                 if (products is null)
                     return new(null, true,
-                       System.Net.HttpStatusCode.NoContent,
+                       HttpStatusCode.NoContent,
                        "No content found");
 
                 var returnProduct = products.Select(
