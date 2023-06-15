@@ -43,7 +43,7 @@ namespace WebJar.Application.Extention
                 {
                     file.CopyTo(FileStream);
                 }
-                imagesPath = placeFile + "/" + date + "/" + fileName + ",";
+                imagesPath += placeFile + "/" + date + "/" + fileName + ",";
             }
             return imagesPath;
         }
