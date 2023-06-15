@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Net;
-using WebJar.Application.Extention;
 using WebJar.Application.ViewModel;
 using WebJar.Domain.Entities;
 using Context = WebJar.Persistence.Data.AppContext;
@@ -70,8 +69,9 @@ namespace WebJar.Application.Services.ProductServices.Commands
         {
             if (priceType.ToUpper() == "CONSTANT")
                 return price;
-            var dollor = int.Parse(_configuration["DollarInToman"]);
-            return price * dollor;
+            var dollorAmount = int.Parse(_configuration.AsEnumerable()?.FirstOrDefault(p=> 
+            p.Key.Contains("MonetaryUnit:DollarInToman")).Value);
+            return price * dollorAmount;
         }
 
     }
