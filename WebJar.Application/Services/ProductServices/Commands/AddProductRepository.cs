@@ -65,7 +65,7 @@ namespace WebJar.Application.Services.ProductServices.Commands
             }
         }
 
-        private decimal CalculatePrice(string priceType, long price)
+        private long CalculatePrice(string priceType, long price)
         {
             if (priceType.ToUpper() == "CONSTANT")
                 return price;
