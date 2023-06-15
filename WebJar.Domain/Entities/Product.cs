@@ -7,7 +7,7 @@ namespace WebJar.Domain.Entities
         [Required]
         public string Name { get; set; }
         [Required]
-        public string ImagesPath { get; set; }
+        public IEnumerable<string> ImagesPath { get; set; }
         [Required]
         public long Price { get; set; }
 

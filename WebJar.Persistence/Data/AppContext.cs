@@ -18,5 +18,17 @@ namespace WebJar.Persistence.Data
             optionsBuilder.UseSqlServer(
                 "Server=DESKTOP-1KVE1GP\\SQLEXPRESS;Database=WebJarProject;Trusted_Connection=True;Encrypt=False");
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+
+            builder.Entity<Product>()
+                .Property(p => p.ImagesPath)
+                .HasConversion(
+                    p => string.Join(',', p),
+                    p => p.Split(",", StringSplitOptions.RemoveEmptyEntries));
+
+            base.OnModelCreating(builder);
+        }
     }
 }

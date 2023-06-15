@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using WebJar.Application.Services.ProductServices.Commands;
+using WebJar.Application.Services.ProductServices.Queries;
 
 namespace WebJar.WebApi
 {
@@ -18,6 +19,7 @@ namespace WebJar.WebApi
             #endregion
             #region Injection
             builder.Services.AddScoped<IAddProductRepository,AddProductRepository>();
+            builder.Services.AddScoped<IGetProductServices, GetProductServices>();
             #endregion
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

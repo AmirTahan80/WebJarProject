@@ -20,8 +20,4 @@
     <ProjectReference Include="..\WebJar.Persistence\WebJar.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\ProductServices\Queries\" />
-  </ItemGroup>
-
 </Project>
