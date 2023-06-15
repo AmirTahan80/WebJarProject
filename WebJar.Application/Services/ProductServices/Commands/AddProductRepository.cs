@@ -25,12 +25,11 @@ namespace WebJar.Application.Services.ProductServices.Commands
                     return new(addProduct, false,
                         HttpStatusCode.BadRequest, "Images can't be null.");
 
-                var images = FileUpload.UploadImages(addProduct.Images, "Product");
                 var createProduct = new Product()
                 {
                     Name = addProduct.Name,
                     Price = CalculatePrice(addProduct.PriceType, addProduct.Price),
-                    ImagesPath = images,
+                    ImagesPath = addProduct.Images,
                     AddOns = addProduct.AddOnViewModels?.Select(p =>
                     new AddOn()
                     {
@@ -52,8 +51,8 @@ namespace WebJar.Application.Services.ProductServices.Commands
                             {
                                 Price = CalculatePrice(c.PriceType, c.Price),
                                 Value = c.Value
-                            })
-                    })
+                            }).ToList()
+                    }).ToList()
                 };
                 await _context.Products.AddAsync(createProduct);
                 var res = await _context.SaveChangesAsync();
@@ -67,7 +66,7 @@ namespace WebJar.Application.Services.ProductServices.Commands
             }
         }
 
-        private float CalculatePrice(string priceType, float price)
+        private decimal CalculatePrice(string priceType, decimal price)
         {
             if (priceType.ToUpper() == "CONSTANT")
                 return price;
