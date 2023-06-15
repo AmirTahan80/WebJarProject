@@ -10,7 +10,7 @@ namespace WebJar.Domain.Entities
 
 
 
-        public int ProductId { get; set; }
+        public long ProductId { get; set; }
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
 

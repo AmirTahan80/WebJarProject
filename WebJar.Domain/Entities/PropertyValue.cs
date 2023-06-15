@@ -8,7 +8,7 @@ namespace WebJar.Domain.Entities
         [Required]
         public string Value { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public long Price { get; set; }
 
         public int PropertyId { get; set; }
         [ForeignKey("PropertyId")]

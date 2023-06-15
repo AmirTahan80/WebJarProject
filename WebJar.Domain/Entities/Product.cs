@@ -9,7 +9,7 @@ namespace WebJar.Domain.Entities
         [Required]
         public string ImagesPath { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public long Price { get; set; }
 
 
         public IEnumerable<Property> Properties { get; set; }

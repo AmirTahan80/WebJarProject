@@ -65,11 +65,11 @@ namespace WebJar.Application.Services.ProductServices.Commands
             }
         }
 
-        private decimal CalculatePrice(string priceType, decimal price)
+        private decimal CalculatePrice(string priceType, long price)
         {
             if (priceType.ToUpper() == "CONSTANT")
                 return price;
-            var dollorAmount = int.Parse(_configuration.AsEnumerable()?.FirstOrDefault(p=> 
+            var dollorAmount = int.Parse(_configuration.AsEnumerable()?.FirstOrDefault(p =>
             p.Key.Contains("MonetaryUnit:DollarInToman")).Value);
             return price * dollorAmount;
         }

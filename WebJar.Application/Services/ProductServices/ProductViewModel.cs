@@ -11,7 +11,7 @@ namespace WebJar.Application.Services.ProductServices
             AddOnViewModels = new List<AddOnViewModel>();
         }
         public required string Name { get; set; }
-        public required decimal Price { get; set; }
+        public required long Price { get; set; }
         public string PriceType { get; set; } = "CONSTANT";
         public string? Images { get; set; }
         public IList<PropertyViewModel> PropertyViewModels { get; set; }

@@ -7,7 +7,7 @@ namespace WebJar.Domain.Entities
         [Required]
         public string Name { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public long Price { get; set; }
 
         public int ProductId { get; set; }
         public Product Product { get; set; }
