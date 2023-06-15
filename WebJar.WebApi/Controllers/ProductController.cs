@@ -35,9 +35,10 @@ namespace WebJar.WebApi.Controllers
         ///     200 - If response not null or null
         /// </returns>
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery]IList<int>? sortings,
+            string searh="")
         {
-            var response = await _getProduct.Execute();
+            var response = await _getProduct.Execute(sortings,searh);
 
             return Ok(response);
         }
