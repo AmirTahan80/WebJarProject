@@ -4,7 +4,7 @@ namespace WebJar.Domain.Entities
 {
     public class Discount : Field
     {
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         public DateTime? ExpireDate { get; set; }
 
         public int ProductId { get; set; }
