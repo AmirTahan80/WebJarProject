@@ -61,7 +61,7 @@ namespace WebJar.Application.Services.ProductServices.Commands
             }
             catch (Exception ex)
             {
-                return new ResultViewModel(ex, false, HttpStatusCode.InternalServerError, ex.Message);
+                return new(ex, false, HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
