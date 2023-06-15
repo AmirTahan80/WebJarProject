@@ -3,9 +3,19 @@ using WebJar.Application.ViewModel;
 
 namespace WebJar.Application.Services.ProductServices
 {
-    public record class ProductViewModel(string Name,
-        IEnumerable<IFormFile>? Images, float Price,
-        IEnumerable<PropertyViewModel> PropertyViewModels,
-        IEnumerable<AddOnViewModel> AddOnViewModels, DiscountViewModel Discount,
-        string PriceType = "CONSTANT");
+    public class ProductViewModel
+    {
+        public ProductViewModel()
+        {
+            PropertyViewModels = new List<PropertyViewModel>();
+            AddOnViewModels = new List<AddOnViewModel>();
+        }
+        public required string Name { get; set; }
+        public required decimal Price { get; set; }
+        public string PriceType { get; set; } = "CONSTANT";
+        public string? Images { get; set; }
+        public IList<PropertyViewModel> PropertyViewModels { get; set; }
+        public IList<AddOnViewModel> AddOnViewModels { get; set; }
+        public DiscountViewModel Discount { get; set; }
+    }
 }
