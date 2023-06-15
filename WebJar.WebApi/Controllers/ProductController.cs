@@ -30,14 +30,19 @@ namespace WebJar.WebApi.Controllers
         }
         /// <summary>
         /// Get All Products With Filter.
+        /// For sorting:
+        ///     0. Cheapest
+        ///     1. Expensive
+        ///     2. Name
+        /// Note: You can pass three of them for sorting, but don't sor by 1 and 0 together :) 
         /// </summary>
-        /// <returns>
-        ///     200 - If response not null or null
-        /// </returns>
+        /// <response code="200">If response is null or not null</response>
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll([FromQuery]IList<int>? sortings,
             string searh="")
         {
+            if (sortings.Count > Enum.GetValues<SortingProductsOrder>().Length )
+                return BadRequest("You can sort by "+ Enum.GetValues<SortingProductsOrder>().Length + " parameter not more");
             var response = await _getProduct.Execute(sortings,searh);
 
             return Ok(response);
